@@ -11,7 +11,6 @@
                     </div>
                 </div>
                 <div class="ht-right">
-                    <?session_start();?>
                     <?if(isset($_SESSION['Correo'])){?>
                             <a href="./php/CerrarUsuario.php" class="login-panel" title="CerrarSession"><?=$_SESSION['Correo']?></i></a>
                     <?}else{?>
@@ -41,12 +40,23 @@
                 <nav class="nav-menu mobile-menu">
                     <ul>
                         <li class="active"><a href="/">Inicio</a></li>
-                        <div class="auto" id="Perfil" style="display: none">{{perfil}}</div>
-                        <script>
-                        </script>
                         <li><a href="Catalogo.php">Catalogo</a></li>
-                        <li><a href="Reserva.php">Reserva</a></li>
-                        <li><a href="#">Ayuda</a></li>
+                        <?if(isset($_SESSION['Correo'])){?>
+                        <li><a href="Reservas.php">Reservas</a></li>
+                        <li><a href="Perfil.php">Perfil</a></li>
+                        <?}?>
+                        <?if($_SESSION[Perfil]=="A"){?>
+                        <li><a href="#">Opciones Administrativas</a>
+                        <ul class="dropdown">
+                            <li><a href="AdminstrarUsuarios.php">Administrar Usuarios</a></li>
+                            <li><a href="AdministrarVehiculos.php">Administrar Vehiculos</a></li>
+                        </ul>
+                        <?}?>
+                        <li><a href="#">Ayuda</a>
+                        <ul class="dropdown">
+                            <li><a href="UbicacionVehiculos.php">¿Donde estan nuestros vehiculos? </a></li>
+                            <li><a href="ComoAcceder.php">¿Como acceder a ellos?</a></li>
+                        </ul>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap">

@@ -14,7 +14,10 @@
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <!-- Custom styles for this template-->
   <link href="css/Login.min.css" rel="stylesheet">
 
@@ -37,6 +40,19 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Iniciar sesión</h1>
                   </div>
+                  <?if($_GET[user]=='2'){?>
+                  <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Usuario Creado!</strong>
+                  </div>
+                  <?}else{
+                      if($_GET[user]=='1'){?>
+                      <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>El correo ya existe!</strong>
+                      </div>
+                      <?}
+                      }?>
                   <form action="./php/ValidarUsuario.php" id="login-form" method="POST" class="user">
                       <div class="form-group">
                         <input type="email" class="form-control form-control-user" name="email" id="email" aria-describedby="emailHelp" placeholder="Escriba su correo...">
@@ -78,6 +94,5 @@
     </div>
 
   </div>
-
 </body>
 </html>

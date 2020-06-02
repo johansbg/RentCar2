@@ -74,7 +74,7 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="inicioSesion">¿Ya tienes cuenta? Inicia sesión</a>
+                    <a class="small" href="Login.php">¿Ya tienes cuenta? Inicia sesión</a>
                   </div>
                   <div class="text-center">
                     <a class="small" href="#">¿Olvido su contraseña?</a>
@@ -82,7 +82,7 @@
                 </div>
               </div>
               <div class="col-lg-6"style="">
-                  <img style="padding-top:50%; " src="img/Logologin.png" />
+                  <img src="img/Logologin.png" />
               </div>
             </div>
           </div>

@@ -1,12 +1,11 @@
 <? 
 //$DB="trans_trans";
-$DB="zipcar";
-$HOST="localhost";
-
+$DB="epiz_25753980_rentcar";
+$HOST="sql204.epizy.com";
 //$USR="trans";
 //$PASS="tt2007";
-$USR="root";
-$PASS="localhost";
+$USR="epiz_25753980";
+$PASS="YeywWcrjoqJvf7";
 
 
 /** SE COLOCAN COMO CONSTANTES GLOBALES PARA EL  MANEJO DE POJO EN LOS SERVICIOS **/

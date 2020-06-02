@@ -25,7 +25,7 @@ if($row[Correo]!=""){
 		setcookie("email",'',time()-100, "/");
 		setcookie("password",'',time()-100, "/");
 	}
-	$_SESSION['IdUsuario']  	= $row[IdUsuario];
+	$_SESSION['Idusuario']  	= $row[Idusuario];
     $_SESSION['Correo']  	= $row[Correo];
 	$_SESSION['Contraseña']  = $row[Contraseña];
     $_SESSION['Nombres'] 	= $row[Nombres];

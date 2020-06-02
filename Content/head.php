@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?include("include/mysql_class.php");?>
+<?session_start();?>
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Zipcar">
@@ -23,6 +24,8 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="css/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 </head>
 
 

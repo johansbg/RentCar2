@@ -13,12 +13,28 @@
                     <div class="col-lg-8">
                             <h1 style="color:white;" >CITYRENT</h1>
                             <p style="color:white;">La nueva forma de rentar autos donde quieras y a la hora que quieras.</p>
-                            <a href="#" class="primary-btn">Mira como funciona</a>
+                            <button class="primary-btn" data-toggle="modal" data-target="#TrailerZipCar">Mira como funciona</button>
                         </div>
                     </div>
             </div>
         </div>
     </section>
+<!-- Modal -->
+    <div class="modal fade" id="TrailerZipCar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Como usar RENTCAR</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="100%" height="415"  src="https://www.youtube.com/embed/ZWXSbCcFQ8M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                                </div>
+                </div>
+            </div>
+        </div>   
+    </div>     
     <!-- Hero Section End -->
 
     <!-- Banner Section Begin -->
@@ -37,7 +53,7 @@
                     <div class="single-banner">
                         <img src="img/banner-2.png" alt="">
                         <div class="inner-text">
-                            <h4>Rentalo</h4>
+                            <a href="Catalogo.php"><h4>Rentalo</h4></a>
                         </div>
                     </div>
                 </div>
@@ -45,7 +61,7 @@
                     <div class="single-banner">
                         <img src="img/banner-3.png" alt="">
                         <div class="inner-text">
-                            <h4>Devuelvelo</h4>
+                        <a href="Reservas.php"><h4>Devuelvelo</h4></a>
                         </div>
                     </div>
                 </div>
@@ -60,82 +76,54 @@
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="filter-control">
-                        <ul>
-                            <li class="active">Todos</li>
-                            <li>Automoviles</li>
-                            <li>Camionetas</li>
-                            <li>Camperos</li>
-                        </ul>
+                        <h3 >Catalogo de Vehiculos</h3>
                     </div>
                     <div class="product-slider owl-carousel">
+                    <?$sql="SELECT 	`IdVehiculos`, 
+                                        `Nombre`, 
+                                        `Marca`, 
+                                        `Modelo`, 
+                                        `Color`,
+                                        `Ano`, 
+                                        `Kilometraje`, 
+                                        `IdCategoria`,
+                                        `Imagen1`, 
+                                        `Imagen2`, 
+                                        `Imagen3`
+                                        FROM 
+                                        `vehiculos`";
+                            $micon->consulta($sql);
+                            while($row=$micon->campoconsultaA()){
+                                $sql1="SELECT `IdCategoria`, 
+                                `NombreCategoria`, 
+                                `PrecioHora`, 
+                                `PrecioDia`, 
+                                `Tiempodevida`
+                                FROM 
+                                `categoriavehiculo`
+                                WHERE `IdCategoria`='$row[IdCategoria]';";
+                                $micon1->consulta($sql1);
+                                $row1=$micon1->campoconsultaA();
+                            ?>
                         <div class="product-item">
                             <div class="pi-pic">
-                                <img src="img/Honda CR-V.png" alt="">
+                                <?$Images1="images/productos/".$row[IdVehiculos]."/".$row[Imagen1];?>
+                                <img src="<?=$Images1?>" alt="">
                                 <ul>
-                                    <li class="quick-view"><a href="#">+ Vista Rapida</a></li>
+                                    <li class="quick-view"><a href="Catalogo.php?IdVeh">+ Ver En el Catalogo</a></li>
                                 </ul>
                             </div>
                             <div class="pi-text">
-                                <div class="catagory-name">Camionetas</div>
+                                <div class="catagory-name"><?=$row1[NombreCategoria]?></div>
                                 <a href="#">
-                                    <h5>Honda CR-V</h5>
+                                    <h5><?=$row[Nombre]?></h5>
                                 </a>
                                 <div class="product-price">
-                                    $10/hr-$80/dia
+                                    $<?=$row1[PrecioHora]?>/hr-$<?=$row1[PrecioDia]?>/dia
                                 </div>
                             </div>
                         </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="img/JeepWrangler.png" alt="">
-                                <ul>
-                                    <li class="quick-view"><a href="#">+ Vista Rapida</a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Camperos</div>
-                                <a href="#">
-                                    <h5>Jeep Wrangler</h5>
-                                </a>
-                                <div class="product-price">
-                                    $10/hr-$80/dia
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="img/Civic.png" alt="">
-                                <ul>
-                                    <li class="quick-view"><a href="#">+ Vista Rapida</a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Automoviles</div>
-                                <a href="#">
-                                    <h5>Honda Civic</h5>
-                                </a>
-                                <div class="product-price">
-                                    $9/hr-$74/dia
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="img/Focus.png" alt="">
-                                <ul>
-                                    <li class="quick-view"><a href="#">+ Vista Rapida</a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Automoviles</div>
-                                <a href="#">
-                                    <h5>Ford Focus</h5>
-                                </a>
-                                <div class="product-price">
-                                    $9/hr-$74/dia
-                                </div>
-                            </div>
-                        </div>
+                            <?}?>
                     </div>
                 </div>
             </div>
@@ -186,6 +174,13 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
+    <script>
+    $(document).ready(function() {
+      $('#TrailerZipCar').on('show.bs.modal', function (event) {
+
+      });
+    })
+    </script>
     
 </body>
 
